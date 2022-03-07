@@ -1,0 +1,139 @@
+> show dbs
+admin       0.000GB
+assignment  0.000GB
+config      0.000GB
+local       0.000GB
+> use assignment
+switched to db assignment
+> db.user.insert({"first_name":"jyoti","last_name":"kumari","email":"jyoti8989@gmail.com","ip":"192.168.0.2","age":"28","gender": "Female"})
+WriteResult({ "nInserted" : 1 })
+> db.user.insert({"first_name":"priti","last_name":"kumari","email":"priti8989@gmail.com","ip":"192.168.0.3","age":"27","gender": "Female"})
+WriteResult({ "nInserted" : 1 })
+> db.user.insert({"first_name":"raj","last_name":"kumar","email":"raj8989@gmail.com","ip":"192.168.0.4","age":"26","gender": "Male"})
+WriteResult({ "nInserted" : 1 })
+> db.user.insert({"first_name":"simran","last_name":"kumari","email":"simran8989@gmail.com","ip":"192.168.0.5","age":"23","gender": "Female"})
+WriteResult({ "nInserted" : 1 })
+> db.user.insert({"first_name":"rahul","last_name":"raj","email":"rahulraj8989@gmail.com","ip":"192.168.0.6","age":"24","gender": "Male"})
+WriteResult({ "nInserted" : 1 })
+> db.user.insert({"first_name":"Prem","last_name":"Bajaj","email":"prem8989@gmail.com","ip":"192.168.0.7","age":"23","gender": "Male"})
+WriteResult({ "nInserted" : 1 })
+> db.user.insert({"first_name":"Luv","last_name":"Mittal","email":"luvmittal8989@gmail.com","ip":"192.168.0.8","age":"29","gender": "Male"})
+WriteResult({ "nInserted" : 1 })
+> db.user.insert({"first_name":"Ekta","last_name":"Singh","email":"ekta8989@gmail.com","ip":"192.168.0.9","age":"22","gender": "Female"})
+WriteResult({ "nInserted" : 1 })
+> db.user.insert({"first_name":"Ajay","last_name":"Singhaniya","email":"ajay8989@gmail.com","ip":"192.168.0.0","age":"21","gender": "Male"})
+WriteResult({ "nInserted" : 1 })
+> db.user.find({}).pretty()
+{
+        "_id" : ObjectId("6226451a489bf154bfa18d30"),
+        "first_name" : "Amar",
+        "last_name" : "Soni",
+        "email" : "amarkr8989@gmail.com",
+        "ip" : "192.168.0.1",
+        "age" : "26"
+}
+{
+        "_id" : ObjectId("62264a80aef13eb002e6d83d"),
+        "first_name" : "jyoti",
+        "last_name" : "kumari",
+        "email" : "jyoti8989@gmail.com",
+        "ip" : "192.168.0.2",
+        "age" : "28",
+        "gender" : "Female"
+}
+{
+        "_id" : ObjectId("62264a89aef13eb002e6d83e"),
+        "first_name" : "priti",
+        "last_name" : "kumari",
+        "email" : "priti8989@gmail.com",
+        "ip" : "192.168.0.3",
+        "age" : "27",
+        "gender" : "Female"
+}
+{
+        "_id" : ObjectId("62264a92aef13eb002e6d83f"),
+        "first_name" : "raj",
+        "last_name" : "kumar",
+        "email" : "raj8989@gmail.com",
+        "ip" : "192.168.0.4",
+        "age" : "26",
+        "gender" : "Male"
+}
+{
+        "_id" : ObjectId("62264a9daef13eb002e6d840"),
+        "first_name" : "simran",
+        "last_name" : "kumari",
+        "email" : "simran8989@gmail.com",
+        "ip" : "192.168.0.5",
+        "age" : "23",
+        "gender" : "Female"
+}
+{
+        "_id" : ObjectId("62264aa6aef13eb002e6d841"),
+        "first_name" : "rahul",
+        "last_name" : "raj",
+        "email" : "rahulraj8989@gmail.com",
+        "ip" : "192.168.0.6",
+        "age" : "24",
+        "gender" : "Male"
+}
+{
+        "_id" : ObjectId("62264ab4aef13eb002e6d842"),
+        "first_name" : "Prem",
+        "last_name" : "Bajaj",
+        "email" : "prem8989@gmail.com",
+        "ip" : "192.168.0.7",
+        "age" : "23",
+        "gender" : "Male"
+}
+{
+        "_id" : ObjectId("62264ab7aef13eb002e6d843"),
+        "first_name" : "Luv",
+        "last_name" : "Mittal",
+        "email" : "luvmittal8989@gmail.com",
+        "ip" : "192.168.0.8",
+        "age" : "29",
+        "gender" : "Male"
+}
+{
+        "_id" : ObjectId("62264abdaef13eb002e6d844"),
+        "first_name" : "Ekta",
+        "last_name" : "Singh",
+        "email" : "ekta8989@gmail.com",
+        "ip" : "192.168.0.9",
+        "age" : "22",
+        "gender" : "Female"
+}
+{
+        "_id" : ObjectId("62264ac3aef13eb002e6d845"),
+        "first_name" : "Ajay",
+        "last_name" : "Singhaniya",
+        "email" : "ajay8989@gmail.com",
+        "ip" : "192.168.0.0",
+        "age" : "21",
+        "gender" : "Male"
+}
+> db.user.findOne({"last_name:"kumari"})
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:29
+> db.user.findOne({"first_name":"amar"})
+null
+> db.user.findOne({"first_name":"Amar"})
+{
+        "_id" : ObjectId("6226451a489bf154bfa18d30"),
+        "first_name" : "Amar",
+        "last_name" : "Soni",
+        "email" : "amarkr8989@gmail.com",
+        "ip" : "192.168.0.1",
+        "age" : "26"
+}
+> db.user.update({"first_name":"Amar"},{$set:{"lastname":"Kumar"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.user.remove({})
+WriteResult({ "nRemoved" : 10 })
+> db.dropdatabase()
+uncaught exception: TypeError: db.dropdatabase is not a function :
+@(shell):1:1
+> db.dropDatabase()
+{ "ok" : 1 }
+>
